@@ -21,5 +21,27 @@
       </button>
     </div>
   </header>
+  
+  <h2 class="text-center font-bold text-2xl my-4 text-white">Task Management Board</h2>
+  <div class="flex justify-center space-x-4 px-4 gap-x-20 mt-20">
+
+    <div id="todoColumn" class="w-[300px] min-h-[300px] p-4 border border-white bg-red-900 rounded-lg">
+      <h3 class="font-bold text-white">To Do</h3>
+      <hr class="border-white border-1 my-2">
+      <div id="tasksInTodo" class="tasks mt-2"></div>
+    </div>
+
+    <div id="inProgressColumn" class="w-[300px] min-h-[300px] p-4 border border-white bg-red-900 rounded-lg shadow">
+      <h3 class="font-bold text-white">In Progress</h3>
+      <hr class="border-white border-1 my-2">
+      <div id="tasksInProgress" class="tasks mt-2"></div>
+    </div>
+
+    <div id="doneColumn" class="w-[300px] min-h-[300px] p-4 border border-white bg-red-900 rounded-lg shadow">
+      <h3 class="font-bold text-white">Done</h3>
+      <hr class="border-white border-1 my-2">
+      <div id="tasksDone" class="tasks mt-2"></div>
+    </div>
+  </div>
 </body>
 </html>
