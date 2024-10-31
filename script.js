@@ -40,3 +40,7 @@ function addTask() {
 function getPriorityColor(priority) {
   return priority === 'P1' ? 'bg-red-300' : priority === 'P2' ? 'bg-green-800' : 'bg-yellow-600';
 }
+function closeModal() {
+  document.getElementById('taskModal').classList.add('hidden');
+  currentTask = null;
+}
