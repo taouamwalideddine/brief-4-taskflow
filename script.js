@@ -31,7 +31,7 @@ function addTask() {
     `;
 
     const targetColumn = status === 'todo' ? 'tasksInTodo' :
-                         status === 'inProgress' ? 'tasksInProgress' : 'tasksx';
+                         status === 'inProgress' ? 'tasksInProgress' : 'tasksDone';
     document.getElementById(targetColumn).appendChild(taskElement);
 
     closeModal();
