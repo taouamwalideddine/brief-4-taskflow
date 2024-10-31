@@ -24,10 +24,14 @@ function addTask() {
     taskElement.className = `task p-2.5 m-1.25 rounded-lg border ${getPriorityColor(priority)}`;
     taskElement.id = `task-${taskIdCounter++}`;
     taskElement.innerHTML = `
-      <div class="font-bold">${title}</div>
-      <div class="text-sm">${description}</div>
-      <div class="text-xs text-gray-600">Due: ${dueDate}</div>
+     <div class="w-full">
+
+      <h3 class="font-bold">${title}</h3>
+      <p class="break-words">test ${description}</p>
+      <p class="text-xs text-gray-600">Due: ${dueDate}</p>
       <button class="bg-orange-500 text-white px-2 mt-2 rounded" onclick="openEditModal('${taskElement.id}')">Modify</button>
+
+     </div>
     `;
 
     const targetColumn = status === 'todo' ? 'tasksInTodo' :
