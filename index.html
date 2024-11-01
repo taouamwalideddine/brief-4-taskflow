@@ -28,21 +28,19 @@
     <div id="todoColumn" class="w-[300px] max-h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">To Do</h3>
       <hr class="border-white border-1 my-2">
-      <div id="tasksInTodo" class="tasks max-h-full mt-2 overflow-auto">
-
-      </div>
+      <div id="tasksInTodo" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
 
-    <div id="inProgressColumn" class="w-[300px] min-h-[300px] p-4 border border-white  rounded-lg shadow">
+    <div id="inProgressColumn" class="w-[300px] max-h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">In Progress</h3>
       <hr class="border-white border-1 my-2">
-      <div id="tasksInProgress" class="tasks mt-2"></div>
+      <div id="tasksInProgress" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
 
-    <div id="doneColumn" class="w-[300px] min-h-[300px] p-4 border border-white rounded-lg shadow">
+    <div id="doneColumn" class="w-[300px] max-h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">Done</h3>
       <hr class="border-white border-1 my-2">
-      <div id="tasksDone" class="tasks mt-2"></div>
+      <div id="tasksDone" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
   </div>
   <div id="taskModal" class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 hidden">
@@ -50,24 +48,24 @@
       <h2 class="text-lg font-bold mb-4 text-white">Task Details</h2>
       <input id="taskTitle" type="text" placeholder="Title" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900" required>
       <textarea id="taskDescription" placeholder="Description" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900 resize-none h-24"></textarea>
-         <input id="taskDueDate" type="date" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900" required>
-         <select id="taskPriority" class="border p-2 mb-2 w-full  bg-red-500 border-2 border-black text-white placeholder:text-orange-900">
-          <option value="P1" class="bg-red-900">P1 - High Priority</option>
-          <option value="P2" class="bg-green-800">P2 - Medium Priority</option>
-          <option value="P3" class="bg-yellow-600">P3 - Low Priority</option>
-        </select>
-        <select id="taskStatus" class="border p-2 mb-2 w-full  bg-red-500 border-2 border-black text-white placeholder:text-orange-900">
-          <option value="todo">To Do</option>
-          <option value="inProgress">In fdProgress</option>
-          <option value="done">Done</option>
-        </select>
-             <div class="flex justify-end space-x-2 ">
-          <button id="applyChanges" class="bg-gray-900 text-white px-4 py-2 rounded border border-white">Apply</button>
-          <button id="deleteTask" class="bg-red-500 text-white px-4 py-2 rounded hidden border border-white" onclick="deleteTask()">Delete</button>
-          <button id="closeModal" class="bg-gray-900 text-white px-4 py-2 rounded border border-white" onclick="closeModal()">Cancel</button>
-        </div>
+      <input id="taskDueDate" type="date" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900" required>
+      <select id="taskPriority" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900">
+        <option value="P1" class="bg-red-900">P1 - High Priority</option>
+        <option value="P2" class="bg-green-800">P2 - Medium Priority</option>
+        <option value="P3" class="bg-yellow-600">P3 - Low Priority</option>
+      </select>
+      <select id="taskStatus" class="border p-2 mb-2 w-full bg-red-500 border-2 border-black text-white placeholder:text-orange-900">
+        <option value="todo">To Do</option>
+        <option value="inProgress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <div class="flex justify-end space-x-2">
+        <button id="applyChanges" class="bg-gray-900 text-white px-4 py-2 rounded border border-white">Apply</button>
+        <button id="deleteTask" class="bg-red-500 text-white px-4 py-2 rounded hidden border border-white" onclick="deleteTask()">Delete</button>
+        <button id="closeModal" class="bg-gray-900 text-white px-4 py-2 rounded border border-white" onclick="closeModal()">Cancel</button>
       </div>
     </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
