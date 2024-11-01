@@ -1,8 +1,8 @@
 body {
-  background: linear-gradient(to bottom right, black , rgb(80, 30, 77) );
+  background: linear-gradient(to bottom right, black , rgb(222, 99, 99) );
 }
 header{
-  background: linear-gradient(to bottom right,rgb(3, 25, 3) , rgb(80, 30, 77) );
+  background: linear-gradient(to bottom right,rgb(3, 25, 3) , rgb(138, 81, 81) );
 }
 
 .hello{

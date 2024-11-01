@@ -47,7 +47,7 @@ function openEditModal(taskId) {
   currentTask = document.getElementById(taskId);
   document.getElementById('taskTitle').value = currentTask.querySelector('.font-bold').textContent;
   document.getElementById('taskDescription').value = currentTask.querySelector('.text-sm').textContent;
-  document.getElementById('taskDueDate').value = currentTask.querySelector('.text-xs').textContent
+  document.getElementById('taskDueDate').value = currentTask.querySelector('.text-xs').textContent;
   document.getElementById('deleteTask').classList.remove('hidden');
 
   document.getElementById('applyChanges').onclick = () => addTask();
