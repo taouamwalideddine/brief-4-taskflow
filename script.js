@@ -12,7 +12,6 @@ function openTaskModal() {
   document.getElementById('taskModal').classList.remove('hidden');
   currentTask = null;
 }
-
 function addTask() {
   const title = document.getElementById('taskTitle').value;
   const description = document.getElementById('taskDescription').value;
@@ -20,25 +19,29 @@ function addTask() {
   const priority = document.getElementById('taskPriority').value;
   const status = document.getElementById('taskStatus').value;
 
-  if (title) {
-    const taskElement = currentTask || document.createElement("div");
-    taskElement.className = `task p-2.5 m-1.25 rounded-lg border ${getPriorityColor(priority)}`;
-    taskElement.id = `task-${taskIdCounter++}`;
-    taskElement.innerHTML = `
-      <div class="font-bold">${title}</div>
-      <div class="text-sm">${description}</div>
-      <div class="text-xs text-gray-600">Due: ${dueDate}</div>
-      <button class="bg-orange-500 text-white px-2 mt-2 rounded" onclick="openEditModal('${taskElement.id}')">Modify</button>
-    `;
-
-    const targetColumn = status === 'todo' ? 'tasksInTodo' :
-                         status === 'inProgress' ? 'tasksInProgress' : 'tasksDone';
-    document.getElementById(targetColumn).appendChild(taskElement);
-
-    closeModal();
+  if (!title) {
+    document.getElementById('titleWarning').classList.remove('hidden');
+    return;
+  } else {
+    document.getElementById('titleWarning').classList.add('hidden');
   }
-}
 
+  const taskElement = currentTask || document.createElement("div");
+  taskElement.className = `task p-2.5 m-1.25 rounded-lg border ${getPriorityColor(priority)}`;
+  taskElement.id = `task-${taskIdCounter++}`;
+  taskElement.innerHTML = `
+    <div class="font-bold">${title}</div>
+    <div class="text-sm w-full break-all">${description}</div>
+    <div class="text-xs text-white">Due: ${dueDate}</div>
+    <button class="bg-orange-500 text-white px-2 mt-2 rounded" onclick="openEditModal('${taskElement.id}')">Modify</button>
+  `;
+
+  const targetColumn = status === 'todo' ? 'tasksInTodo' :
+                       status === 'inProgress' ? 'tasksInProgress' : 'tasksDone';
+  document.getElementById(targetColumn).appendChild(taskElement);
+
+  closeModal();
+}
 function getPriorityColor(priority) {
   return priority === 'P1' ? 'bg-red-300' : priority === 'P2' ? 'bg-green-800' : 'bg-yellow-600';
 }
