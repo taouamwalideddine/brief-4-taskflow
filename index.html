@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
-  <header class="flex justify-between items-center p-4 h-11">
-    <button onclick="openTaskModal()" class="bg-pink-900 text-zinc-800 px-10 py-1 rounded-3xl h-8">Add Task +</button>
-    
-    <div class="flex items-center">
-      <input type="text" placeholder="Search ..." class="border border-black rounded-3xl px-4 py-1 ">
+  <header class="flex flex-col items-center justify-between p-4 space-y-4 md:space-y-0 md:flex-row">
+  
+    <button onclick="openTaskModal()" class="bg-pink-900 text-white px-6 py-2 rounded-3xl w-full md:w-auto h-10">
+      Add Task +
+    </button>
+  
+    <div class="flex items-center w-full md:w-auto space-x-2">
+      <input type="text" placeholder="Search ..." class="border border-black rounded-3xl px-4 py-2 w-full md:w-auto">
       <button class="bg-pink-900 p-2 rounded-lg">
         <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M21.707 20.293l-6.387-6.387a7.964 7.964 0 001.387-4.906C16.707 4.477 13.23 1 8.854 1S1 4.477 1 8.854s3.477 7.854 7.854 7.854a7.964 7.964 0 004.906-1.387l6.387 6.387a1 1 0 001.414-1.414zM3 8.854C3 5.794 5.794 3 8.854 3s5.854 2.794 5.854 5.854-2.794 5.854-5.854 5.854S3 11.914 3 8.854z"></path>
@@ -22,51 +25,65 @@
     </div>
   </header>
   
+  
   <h2 class="text-center font-bold text-2xl my-4 text-white">Task Management Board</h2>
-  <div class="flex justify-center space-x-4 px-4 gap-x-20 mt-20">
 
-    <div id="todoColumn" class="w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
+  <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 px-4 gap-x-6 mt-6">
+    <!-- to do-->
+    <div id="todoColumn" class="w-full md:w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">To Do</h3>
       <hr class="border-white border-1 my-2">
       <div id="tasksInTodo" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
-
-    <div id="inProgressColumn" class="w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
+  
+    <!-- in Progress -->
+    <div id="inProgressColumn" class="w-full md:w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">In Progress</h3>
       <hr class="border-white border-1 my-2">
       <div id="tasksInProgress" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
-
-    <div id="doneColumn" class="w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
+  
+    <!-- done -->
+    <div id="doneColumn" class="w-full md:w-[300px] h-[300px] p-4 border border-white rounded-lg overflow-hidden">
       <h3 class="font-bold text-white">Done</h3>
       <hr class="border-white border-1 my-2">
       <div id="tasksDone" class="tasks max-h-full mt-2 overflow-auto"></div>
     </div>
   </div>
+  
+
   <div id="taskModal" class="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-75 hidden">
+    
     <div class="rounded-lg p-6 w-96 border border-white bg-pink-900">
       <h2 class="text-lg font-bold mb-4 text-white">Task Details</h2>
       <input id="taskTitle" type="text" placeholder="Title" class="border p-2 mb-2 w-full bg-pink-700 border-2 border-black text-white placeholder:text-white" required>
       <div id="titleWarning" class="text-red-500 text-sm hidden">Please enter a title.</div>
+
       <textarea id="taskDescription" placeholder="Description" class="border p-2 mb-2 w-full bg-pink-700 border-2 border-black text-white placeholder:text-white resize-none h-24"></textarea>
       <input id="taskDueDate" type="date" class="border p-2 mb-2 w-full bg-pink-700 border-2 border-black text-white placeholder:text-orange-900" required>
+
       <select id="taskPriority" class="border p-2 mb-2 w-full bg-pink-700 border-2 border-black text-white placeholder:text-orange-900">
         <option value="P1" class="bg-red-900">P1 - High Priority</option>
         <option value="P2" class="bg-green-800">P2 - Medium Priority</option>
         <option value="P3" class="bg-yellow-600">P3 - Low Priority</option>
       </select>
+
       <select id="taskStatus" class="border p-2 mb-2 w-full bg-pink-700 border-2 border-black text-white placeholder:text-orange-900">
         <option value="todo">To Do</option>
         <option value="inProgress">In Progress</option>
         <option value="done">Done</option>
       </select>
+
       <div class="flex justify-end space-x-2">
         <button id="applyChanges" class="bg-gray-900 text-white px-4 py-2 rounded border border-white">Apply</button>
         <button id="deleteTask" class="bg-red-500 text-white px-4 py-2 rounded hidden border border-white" onclick="deleteTask()">Delete</button>
         <button id="closeModal" class="bg-gray-900 text-white px-4 py-2 rounded border border-white" onclick="closeModal()">Cancel</button>
       </div>
+
     </div>
+
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
