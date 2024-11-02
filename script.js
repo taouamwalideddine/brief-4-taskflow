@@ -37,7 +37,7 @@ function addTask() {
     <div class="font-bold">${title}</div>
     <div class="text-sm w-full break-all">${description}</div>
     <div class="text-xs text-white">Due: ${dueDate}</div>
-    <button class="bg-orange-500 text-white px-2 mt-2 rounded" onclick="openEditModal('${taskElement.id}')">Modify</button>
+    <button class="bg-black text-white px-2 mt-2 rounded-lg" onclick="openEditModal('${taskElement.id}')">Modify</button>
   `;
 // for placing tasks in thier chosen lists
   const targetColumn = status === 'todo' ? 'tasksInTodo' :
@@ -48,7 +48,7 @@ function addTask() {
 }
 // function for priority color
 function getPriorityColor(priority) {
-  return priority === 'P1' ? 'bg-red-300' : priority === 'P2' ? 'bg-green-800' : 'bg-yellow-600';
+  return priority === 'P1' ? 'bg-red-600' : priority === 'P2' ? 'bg-green-800' : 'bg-yellow-600';
 }
 // function for editing existing modal
 function openEditModal(taskId) {
